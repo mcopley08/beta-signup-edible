@@ -130,9 +130,16 @@ header a, a:visited {
 } 
 
 /* positioning the bottom image */
-@media screen and (max-width: 308px) { 
+@media screen and (max-width: 360px) { 
   .stars, .twinkling, .clouds {
-    height: 130%;
+    height: 125% !important;
+  }
+}
+
+/* positioning the bottom image */
+@media screen and (max-width: 312px) { 
+  .stars, .twinkling, .clouds {
+    height: 125% !important;
   }
   .horizontal-subscribe-form .input-box {
     width: 200px !important;
