@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" 
+      type="image/png" 
+      href="images/favicon.png">
+
+    <title>Edible App - Find What You Can Eat</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Twinkling Stars -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="background-size: cover">
+
+    <div class="stars"></div>
+    <div class="twinkling">
+      <!-- Intro Section -->
+    <section id="intro" class="intro-section" style="overflow: hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 style="color: white; font-family: 'Jhonny'; font-size: 8em; text-shadow: 3px 3px 5px #000;">Edible</h1>
+                    <p style="color:white; font-family: 'abel', sans-serif; font-size: 1.5em"><strong>Find what you can eat</strong> at restaurants given your dietary restrictions. We are supporting vegetarian, vegan, gluten-free, and the eight main food allergies in our beta. This app will be released for free, and if you are a restaurant wanting to integrate your menu into the app, email us at <a href="mailto:edibleapp@gmail.com">edibleapp@gmail.com</a></p>
+                    <!-- <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a> -->
+
+                    <!-- Mailchimp form integration -->
+                    <div class="horizontal-subscribe-form">
+                      <form class="form-inline mailchimp" action="subscribe.php" method="POST">
+                          
+                          <input type="email" id="cf-email" name="email" class="form-control input-box hide-this" placeholder="Enter your Email">
+
+                          <button type="submit" id="submit_subscribe" class="btn btn-primary standard-button hide-this">Subscribe</button>
+                          
+                      </form>
+
+                      <!-- MAILCHIMP SUCCESS AND ERROR MESSAGE -->
+                      <p class="mailchimp-success white-text"><span class="icon-check-alt2 colored-text"></span>Thanks! Please confirm your subscription from your email inbox</p>
+                      <p class="mailchimp-error white-text"><span class="icon-close-alt2"></span>Error! Please enter correct email</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 bottom-image">
+                    <img src="images/dinner-scene.png" class="img-responsive"> 
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+
+    <script>
+    /*---------------------------------------*/
+    /*  MAILCHIMP
+    /*---------------------------------------*/
+    
+    $('.mailchimp').ajaxChimp({
+        callback: mailchimpCallback,
+        url: "" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+    });
+
+    function mailchimpCallback(resp) {
+        if (resp.result === 'success') {
+            $('.mailchimp-success').fadeIn(1000);
+            $('.mailchimp-error').fadeOut(500);
+            $('.hide-this').toggle();
+        } else if (resp.result === 'error') {
+            $('.mailchimp-error').fadeIn(1000);
+            $('.mailchimp-success').fadeOut(500);
+        }
+    }
+    </script>
+
+</body>
+
+</html>

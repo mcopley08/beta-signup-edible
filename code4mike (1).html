@@ -1,0 +1,133 @@
+// HTML
+                                    <div class="horizontal-subscribe-form">
+
+                                        <form class="form-inline mailchimp" action="subscribe.php" method="POST">
+                                            
+                                            <input type="email" id="cf-email" name="email" class="form-control input-box hide-this" placeholder="Enter your Email">
+
+                                            <button type="submit" id="submit_subscribe" class="btn btn-primary standard-button hide-this">Subscribe</button>
+                                            
+                                        </form>
+
+                                        <!-- MAILCHIMP SUCCESS AND ERROR MESSAGE -->
+                                        <p class="mailchimp-success white-text"><span class="icon-check-alt2 colored-text"></span>Thanks! Please confirm your subscription from your email inbox</p>
+                                        <p class="mailchimp-error white-text"><span class="icon-close-alt2"></span>Error! Please enter correct email</p>
+                                    </div>
+
+// Javascript 
+
+
+	/*---------------------------------------*/
+    /*	MAILCHIMP
+	/*---------------------------------------*/
+    
+
+    $('.mailchimp').ajaxChimp({
+        callback: mailchimpCallback,
+        url: "" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+    });
+
+    function mailchimpCallback(resp) {
+        if (resp.result === 'success') {
+            $('.mailchimp-success').fadeIn(1000);
+            $('.mailchimp-error').fadeOut(500);
+            $('.hide-this').toggle();
+        } else if (resp.result === 'error') {
+            $('.mailchimp-error').fadeIn(1000);
+            $('.mailchimp-success').fadeOut(500);
+        }
+    }
+
+
+//CSS
+.horizontal-subscribe-form {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 6px;
+    padding: 25px 25px 25px 25px;
+}
+
+.input-box,
+.textarea-box {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    outline: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    color: #999999;
+    padding-left: 21px;
+    line-height: auto;
+}
+
+.input-box {
+    min-height: 50px;
+}
+
+.input-box:active,
+.textarea-box:active,
+.input-box:focus,
+.textarea-box:focus {
+    color: #272727;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.horizontal-subscribe-form .input-box,
+.horizontal-subscribe-form .standard-button {
+    margin: 3px;
+}
+
+.horizontal-subscribe-form .input-box {
+    min-height: 65px;
+    width: 350px;
+    font-size: inherit;
+}
+
+.horizontal-subscribe-form .standard-button {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.horizontal-subscribe-form .input-box,
+.horizontal-subscribe-form .standard-button {
+    margin: 3px;
+}
+
+.standard-button {
+    font-weight: 600;
+}
+
+.standard-button {
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    line-height: 1.6;
+    border: none;
+    padding: 18px 40px 18px 40px;
+    color: #ffffff;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.mailchimp-success,
+.mailchimp-error,
+.email-success,
+.email-error {
+    display: none;
+    margin-top: 15px;
+}
+
+.mailchimp-success span,
+.mailchimp-error span,
+.email-success span,
+.email-error span {
+    margin-right: 10px;
+}
+
+.white-text {
+    color: #ffffff;
+}
