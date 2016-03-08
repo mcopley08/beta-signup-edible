@@ -17,11 +17,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-
     <!-- Twinkling Stars -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
@@ -52,7 +49,7 @@
 
                     <!-- Mailchimp form integration -->
                     <div class="horizontal-subscribe-form">
-                      <form class="form-inline mailchimp" action="subscribe.php" method="POST">
+                      <form class="form-inline mailchimp" id="beta-signup" action="" method="POST">
                           
                           <input type="email" id="cf-email" name="email" class="form-control input-box hide-this" placeholder="Enter your Email">
 
@@ -76,8 +73,6 @@
     </section>
     </div>
 
-    
-
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -87,18 +82,20 @@
 
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
+
+    <!-- MailChimp Library & Scripts -->
+    <script src="js/jquery.ajaxchimp.js"></script>
 
     <script>
-    /*---------------------------------------*/
-    /*  MAILCHIMP
-    /*---------------------------------------*/
-    
-    $('.mailchimp').ajaxChimp({
-        callback: mailchimpCallback,
-        url: "" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
-    });
 
+    $("#beta-signup").submit(function(event) {
+      event.preventDefault();
+      $('.mailchimp').ajaxChimp({
+        callback: mailchimpCallback,
+        url: "http://crossthelineband.us9.list-manage.com/subscribe/post?u=e0cce9ea50e7e37b5bc731b4f&amp;id=2c243a4914" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+      });
+    })
+    
     function mailchimpCallback(resp) {
         if (resp.result === 'success') {
             $('.mailchimp-success').fadeIn(1000);
@@ -109,6 +106,7 @@
             $('.mailchimp-success').fadeOut(500);
         }
     }
+
     </script>
 
 </body>
